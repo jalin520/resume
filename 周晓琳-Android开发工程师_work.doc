@@ -1,0 +1,836 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<title>Markdoc Preview</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* mscore */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei', sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+
+/*
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-subst,
+.hljs-tag .hljs-title,
+.nginx .hljs-title {
+  color: black;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-constant,
+.hljs-parent,
+.hljs-tag .hljs-value,
+.hljs-rules .hljs-value,
+.hljs-preprocessor,
+.hljs-pragma,
+.haml .hljs-symbol,
+.ruby .hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.hljs-addition,
+.hljs-flow,
+.hljs-stream,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.tex .hljs-special,
+.erlang_repl .hljs-function_or_atom,
+.asciidoc .hljs-header,
+.markdown .hljs-header,
+.coffeescript .hljs-attribute {
+  color: #800;
+}
+
+.smartquote,
+.hljs-comment,
+.hljs-annotation,
+.diff .hljs-header,
+.hljs-chunk,
+.asciidoc .hljs-blockquote,
+.markdown .hljs-blockquote {
+  color: #888;
+}
+
+.hljs-number,
+.hljs-date,
+.hljs-regexp,
+.hljs-literal,
+.hljs-hexcolor,
+.smalltalk .hljs-symbol,
+.smalltalk .hljs-char,
+.go .hljs-constant,
+.hljs-change,
+.lasso .hljs-variable,
+.makefile .hljs-variable,
+.asciidoc .hljs-bullet,
+.markdown .hljs-bullet,
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url {
+  color: #080;
+}
+
+.hljs-label,
+.hljs-javadoc,
+.ruby .hljs-string,
+.hljs-decorator,
+.hljs-filter .hljs-argument,
+.hljs-localvars,
+.hljs-array,
+.hljs-attr_selector,
+.hljs-important,
+.hljs-pseudo,
+.hljs-pi,
+.haml .hljs-bullet,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-envvar,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in,
+.tex .hljs-formula,
+.erlang_repl .hljs-reserved,
+.hljs-prompt,
+.asciidoc .hljs-link_label,
+.markdown .hljs-link_label,
+.vhdl .hljs-attribute,
+.clojure .hljs-attribute,
+.asciidoc .hljs-attribute,
+.lasso .hljs-attribute,
+.coffeescript .hljs-property,
+.hljs-phony {
+  color: #88f;
+}
+
+.hljs-keyword,
+.hljs-id,
+.hljs-title,
+.hljs-built_in,
+.css .hljs-tag,
+.hljs-javadoctag,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.hljs-yardoctag,
+.smalltalk .hljs-class,
+.hljs-winutils,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.hljs-type,
+.hljs-typename,
+.tex .hljs-command,
+.asciidoc .hljs-strong,
+.markdown .hljs-strong,
+.hljs-request,
+.hljs-status {
+  font-weight: bold;
+}
+
+.asciidoc .hljs-emphasis,
+.markdown .hljs-emphasis {
+  font-style: italic;
+}
+
+.nginx .hljs-built_in {
+  font-weight: normal;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.lasso .markup,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}
+#container {
+  padding: 15px;
+  margin-left:20px;
+}
+pre {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+}
+pre code {
+  white-space: pre-wrap;
+}
+.hljs,
+code {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+pre{
+  background-color: #dddddd;
+  padding:8px 0px 8px 30px;
+  word-wrap: break-word;
+}
+table tbody tr:nth-child(2n) {
+    background: rgba(158,188,226,0.12); 
+}
+:not(pre) > code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+}
+blockquote {
+    border-left-width: 10px;
+    background-color: rgba(102,128,153,0.05);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1px 20px
+}
+blockquote.pull-right small:before,blockquote.pull-right .small:before {
+    content: ''
+}
+
+blockquote.pull-right small:after,blockquote.pull-right .small:after {
+    content: '\00A0 \2014'
+}
+
+blockquote:before,blockquote:after {
+    content: ""
+}
+blockquote {
+    margin: 0 0 1.1em
+}
+blockquote p {
+    margin-bottom: 1.1em;
+    font-size: 1em;
+    line-height: 1.45
+}
+
+blockquote ul:last-child,blockquote ol:last-child {
+    margin-bottom: 0
+}
+blockquote {
+    margin: 0 0 21px;
+    border-left: 10px solid #dddddd;
+}</style></head>
+<body>
+<div id="container"><h3 id="-">个人信息</h3>
+<ul>
+<li>周晓琳/女/1992</li>
+<li>大专/广东科学技术职业学院/软件工程(2011年-2014年)</li>
+<li>在读本科/深圳大学/计算机信息管理(2019年-2021年)</li>
+<li>工作年限：6年</li>
+<li>期望职位：Android工程师</li>
+<li>Github：<a href="https://github.com/jalin520">https://github.com/jalin520</a></li>
+<li>期望城市：珠海</li>
+<li>手机：15989781572</li>
+<li>Email：993625556@qq.com</li>
+</ul>
+<h3 id="-">专业技能</h3>
+<ul>
+<li>精通java，熟悉Kolin、C/C++、C#、JavaScript、SQL、Objective-C等编程语言</li>
+<li>熟练掌握数据结构、算法、软件⼯程、操作系统、设计模式等专业理论知识；</li>
+<li>扎实的java基础，熟悉掌握面向对象思想，熟悉掌握常用设计模式</li>
+<li>精通Android framework 层JNI使用，完成C++核心算法模块封装设计</li>
+<li>精通Android 蓝牙BLE通讯开发、熟悉BLE模块封装设计</li>
+<li>精通混合开发技术、掌握WebView模块封装设计</li>
+<li>熟悉Android应用UI设计、完成复杂流程开发、完成复杂的UI动效设计、性能优化</li>
+<li>精通Android网络通信机制、熟悉Socket通信、HTTP/HTTPS协议，熟悉数据传输格式json、xml等</li>
+<li>精通移动端数据库技术Realm、SQLllite、GreenDao，熟悉后端数据库MySql；</li>
+<li>精通MVC、MVVM架构模式；</li>
+<li>熟悉Tinker热修复技术</li>
+<li>熟悉分享、推送、支付、及时推送、地图等主流第三方平台SDK调用</li>
+<li>熟悉使用Git、SVG项目版本管理软件</li>
+<li>了解React、HTML5、CSS等前端开发技术、了解微信小程序开发</li>
+</ul>
+<h3 id="-">综合能力</h3>
+<ul>
+<li>工作认真负责，较强的团队意识，及时沟通，汇报工作进度；</li>
+<li>⼯作明确规划，追求⾼效、灵活的⼯作理念；</li>
+</ul>
+<h3 id="-">工作经历</h3>
+<h4 id="-2016-6-4-10-android-">珠海安润普科技有限公司 （ 2016年6月 ~ 至今 ） 4年10月    Android工程师</h4>
+<p>   我在安润普公司主要负责底层模块设计、蓝牙通讯协议SDK接口定义、文档规范、开发，给第三方公司提供技术支持。接手一期项目，独立或团队开发、迭代、维护更新。着手解决现有的遗留问题并提供相关的技术解决方案。开发安润普公司设备管理工具，提供给各部门及其大学研究机构用于调试、算法分析。</p>
+<h4 id="-2014-6-2016-5-2-android-">珠海街邻科技有限公司 （ 2014年6月 ~ 2016年5月 ） 2年     Android工程师</h4>
+<p>   街邻是一家初创互联网 o2o 企业，我在团队中担任Android开发工程师角色，参与功能框架设计，系统分析，独立完成编码，单元测试。负责店铺管理app，街邻VIP用户点餐app整体开发设计，负责运营、销售Android客户端软件发布、更新、维护；后期6个月独自接手Android客户端，后2个月接手苹果手机客户端项目，参与街邻点餐IOS应用、街邻店铺管理IOS应用开发、维护及发布。 </p>
+<hr>
+<h3 id="-">参与项目</h3>
+<h4 id="sdk-">SDK(安润普传感器设备工具包 + 快速开发工具包)</h4>
+<p>2018.01 – 至今 </p>
+<ul>
+<li>蓝⽛通讯模块SDK，将BLE的搜索、连接、协议解析等细节进⾏封装，使其⽤法如同HTTP请求般简单。</li>
+<li>使⽤C++进⾏协议解析，消除了iOS、Android独⽴解析导致数据不⼀致的问题。</li>
+<li>单独打包的C++协议解析库，降低了被反编译的⻛险，提⾼安全性。</li>
+<li>⾯向对象的抽象，使得新设备的接⼊更加简单⾼效，⽀持同时连接多个设备。 </li>
+<li>基于Webkit的消息通道，提供了JS接⼝使得Html5也具有蓝⽛连接、通讯的能⼒。 </li>
+<li>打包成jar并发布到maven⽅便集成。</li>
+</ul>
+<h4 id="adk-rxjava2-retrofit2-okhttp3-blesdk-realm-">ADK( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm)</h4>
+<p>2018.03 – 至今 </p>
+<ul>
+<li>集成安润普公司19种智能穿戴蓝牙设备，用于采集设备上报数据，分析结果、绘制图表，提供给专业人员数据分析。</li>
+<li>支持数据同步，数据实时分发给多个客户端展示。</li>
+<li>利用ADVSdk的抽象封装，使⽤相同的接⼝同时连接多种设备</li>
+<li>利用Socket长连接，把数据同步发送到PC端，让手机与PC显示的数据同步，并手机控制PC的操作。</li>
+<li>解决多个蓝牙设备同时连接瓶颈问题</li>
+<li>绘制MPCahrtAndroid,进行常规图表（线图、柱状图）等实时动态的数据展示。</li>
+<li>使用缓存渲染技术、解决1024HZ心电图数据流程问题</li>
+</ul>
+<h4 id="-rxjava2-retrofit2-okhttp3-blesdk-realm-h5-">孕呼吸( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm + H5混合开发)</h4>
+<p>2019.06 – 至今 </p>
+<ul>
+<li>完成训练课程、游戏、社交、h5商城、百科、音乐、即时通讯、蓝牙设备、抽奖等功能</li>
+<li>孕妇使用APP学习拉玛泽呼吸训练法、潜水游戏，日常社交互动</li>
+<li>呼吸课程部分使⽤⾃主开发的课程引擎，通过编排好的脚本，⾃动切换教学视频、语⾳播放、训练交互等场景</li>
+<li>训练交互场景使⽤Html5技术，结合ADVSdk的JS接⼝，与呼吸带进⾏数据交互</li>
+<li>课程脚本和Html⽀持热更新</li>
+<li>利用极光和自定义UI组件实现聊天功能</li>
+</ul>
+<h4 id="-rxjava2-retrofit2-okhttp3-blesdk-realm-h5-">拉风智能裤( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm + H5混合开发)</h4>
+<p>2018.06 – 2019.06</p>
+<ul>
+<li>完成潜水游戏、心率、步数、跌倒监测、心肺训练、h5商城、蓝牙设备等功能。</li>
+<li>BLE蓝牙协议模块。</li>
+<li>Android原生和嵌入Webkit交互通讯。</li>
+<li>Retrofit云服务模块。</li>
+<li>潜水游戏C++算法模块。</li>
+<li>实时步数、跌倒监测功能。</li>
+</ul>
+<h4 id="-rxjava2-retrofit2-okhttp3-blesdk-greendao-">大象运动(RxJava2 + Retrofit2 + OkHttp3 + BleSDK + GreenDao)</h4>
+<p>2017.01 – 2017.11</p>
+<p>大象运动项目是一个给安润普客户提供的智能穿戴设备APP，采集跑步用户每天跑步数据,以及利用算法处理数据后得出一些有效的分析。该项目主要实现数据管理，设备管理，蓝牙数据，算法结论，数据上传云端进行大数据分析，等模块。</p>
+<ul>
+<li>整理项目需求，参与需求相关的文档、UI评审，并提出问题或建议</li>
+<li>根据需求确定技术选型</li>
+<li>根据UI界面封装通用组件</li>
+</ul>
+<hr>
+<h4 id="-24-rxjava2-retrofit2-okhttp3-socket-">迈德24小时售药机系统(RxJava2 + Retrofit2 + OkHttp3 + Socket)</h4>
+<p>2017.10 – 2018.03</p>
+<h5 id="-">描述</h5>
+<p>Med-Q项目是一个通过24小时自动售药机，解决市场消费者夜间买药难问题；通过线上购药，线下取药的服务模式，满足消费者随时快速搜药、比价、购药、就近取药(送药上门）方便购药的民生项目。</p>
+<h5 id="-">职责</h5>
+<ul>
+<li>整理项目需求，参与需求相关的文档、UI评审，并提出问题或建议</li>
+<li>根据需求确定技术选型</li>
+<li>根据UI界面封装通用组件</li>
+<li>根据硬件协议接入硬件通信，实现下货功能</li>
+<li>接入socket,实现手机app与机器通讯</li>
+<li>接入客服视频模块，实现药机与后台系统的双向视频通话</li>
+</ul>
+<hr>
+<h4 id="-vip-app">街邻VIP生活APP</h4>
+<p>2015.02-2015.06
+街邻VIP生活APP主要提供点餐服务平台产品，商家店铺信息，商家营销活动，线上下单，线上支付等，与商家交付等服务平台。下单支付支持支付宝支付、微信支付，支持定位、导航店铺，通过push消息推送订单状态。</p>
+<ul>
+<li>我参与整个项目框架设计、代码编写。</li>
+</ul>
+<hr>
+<h4 id="-android-app">街邻android店铺管理app</h4>
+<p>2014.12-2015.06
+android2.3以上(软件环境)商家店铺管理应用，包括商品新增上架维护，微信公共号接入，微信活动发布，接单，结账，会员管理，店铺设置，等应用。</p>
+<ul>
+<li>我参与整个项目开发，负责订单处理，会员管理，商品设置，微信接入，发布活动等功能开发，及后期维护。</li>
+</ul>
+<hr>
+<h4 id="-">平板点餐营业版</h4>
+<p>2014.07-2015.01
+android 2.3以上(软件环境)餐厅用于营业、点餐、接单、打印、结帐、收款、会员管理、店铺设置。</p>
+<ul>
+<li>我负责接单、打印、收款等功能开发及维护。</li>
+</ul>
+<hr>
+<h3 id="-">致谢</h3>
+<p>感谢您花时间阅读我的简历，期待能有机会和您共事。</p>
+</div>
+</body></html>
