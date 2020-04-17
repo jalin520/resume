@@ -59,6 +59,7 @@
 - 打包成jar并发布到maven⽅便集成。
 
 
+***
 #### ADK( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm)
 2018.03 – 至今 
 
@@ -71,6 +72,7 @@
 - 使用缓存渲染技术、解决1024HZ心电图数据流程问题
 
 
+***
 #### 孕呼吸( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm + H5混合开发)
 2019.06 – 至今 
 
@@ -82,6 +84,7 @@
 - 利用极光和自定义UI组件实现聊天功能
 
 
+***
 #### 拉风智能裤( RxJava2 + Retrofit2 + OkHttp3 + BleSDK + Realm + H5混合开发)
 2018.06 – 2019.06
 
@@ -93,6 +96,7 @@
 - 实时步数、跌倒监测功能。
 
 
+***
 #### 大象运动(RxJava2 + Retrofit2 + OkHttp3 + BleSDK + GreenDao)
 2017.01 – 2017.11
 
